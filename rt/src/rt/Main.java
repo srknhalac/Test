@@ -1,34 +1,13 @@
 package rt;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
-
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Main {
 	public static void main(String[] args) {
-		List<Customer> list = new ArrayList<>();
-		list.add(new Customer("a"));
-		list.add(new Customer("b"));
-		list.add(new Customer("c"));
-		list.add(new Customer("d"));
-		list.add(new Customer("e"));
-		list.add(new Customer("a"));
-		list.add(new Customer("b"));
-		list.add(new Customer("c"));
-		list.add(new Customer("d"));
-		list.add(new Customer("e"));
-
-		Map<String, List<Customer>> map = new HashMap<>();
-		map.put("a", list);
-		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
-			Customer customer = (Customer) iterator.next();
-			System.out.println(customer.getName());
-		}
-
+		List<String> list = List.of("ali","veli");
+		List<Boolean> map=list.stream().map(i->i.equals("ali")).collect(Collectors.toList());
+		System.out.println(map);
 	}
-
 }
